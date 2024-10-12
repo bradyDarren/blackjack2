@@ -7,7 +7,7 @@ card_deck = {"diamonds":{"ace":[1,11], 2:2, 3:3, 4:4, 5:5, 6:6, 7:7, 8:8, 9:9, "
              "spades":{"ace":[1,11], 2:2, 3:3, 4:4, 5:5, 6:6, 7:7, 8:8, 9:9, "jack":10, "king":10, "queen":10}}
 
 
-def hit(deck):
+def hit_me(deck):
     # outputs random card suit
     rand_suit = random.choice(list(deck.keys()))
     # print(rand_suit) - test line
@@ -23,7 +23,7 @@ def hit(deck):
     return card_value, rand_rank
 
 def rank_eval(score):
-    card = hit(card_deck) 
+    card = hit_me(card_deck) 
     if card[1] == "ace":
         if score >= 11: 
             score += 1
@@ -33,13 +33,20 @@ def rank_eval(score):
         score += card[0]
     return score
 
-print(rank_eval(11))
-print(rank_eval(5))
 
+def blackjack():
+    user_score = 0
+    comp_score = 0 
+    user_start = input("Would you like to play a game of blackjack? Type 'y' or 'n': ")
+    while user_start != 'n':
+        user_cards = [rank_eval(user_score), rank_eval(user_score)]
+        user_score += sum(user_cards)
+        comp_cards = [rank_eval(comp_score), rank_eval(comp_score)]
+        comp_score += sum(comp_cards)
+        print(f"Your cards {user_cards}, current score: {user_score}")
+        print(f"Computer's first card: {comp_cards[0]}")
+        break
 
-# def start():
-#     user_start = input("Would you like to play a game of black jack? Type 'y' or 'n': ").lower
-#     if user_start == 'n':
-#         print("Thank you! Have a nice day!")
-#     else:
+blackjack()
+
 
