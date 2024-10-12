@@ -9,10 +9,8 @@ card_values = (1,2,3,4,5,6,7,8,9,10,11)
 s_rand = random.choice(suits)
 r_rand = random.choice(ranks)
 
-print(ranks[range(10,12)])
+card_deck = {}
 
+card_deck[s_rand] = {r_rand:card_values[1]} 
 
-# for x in range(len(ranks)):
-#     if ranks[x] == r
-#     print(suits[0],ranks[x], card_values[x])
-
+print(card_deck)
