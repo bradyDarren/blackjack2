@@ -33,20 +33,25 @@ def rank_eval(score):
         score += card[0]
     return score
 
-
 def blackjack():
     user_score = 0
     comp_score = 0 
     user_start = input("Would you like to play a game of blackjack? Type 'y' or 'n': ")
-    while user_start != 'n':
-        user_cards = [rank_eval(user_score), rank_eval(user_score)]
-        user_score += sum(user_cards)
-        comp_cards = [rank_eval(comp_score), rank_eval(comp_score)]
-        comp_score += sum(comp_cards)
-        print(f"Your cards {user_cards}, current score: {user_score}")
-        print(f"Computer's first card: {comp_cards[0]}")
-        break
+    user_score = [rank_eval(user_score), rank_eval(user_score)]
+    comp_score = [rank_eval(comp_score), rank_eval(comp_score)]
+    print(f"Your cards: {user_score}, current score: {user_score[0]}")
+    print(f"Computer's first card: {comp_score[0]}")
+    # while user_start != 'n':
+    #     user_start = input("Type 'y' to get another card, type 'n' to pass: ")
+    #     user_cards.append(rank_eval(user_score)[0])
+    #     print(user_cards)
 
+    #     if user_start == "n":
+    #         print(f"Your final hand: {user_cards}, current score: {user_score}")
+    #         print(f"Computer's first card: {comp_cards}, final score {comp_score}")
+        
+    # if user_score > 21:
+    #     print(f"Busted. ")
 blackjack()
 
 
