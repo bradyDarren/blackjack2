@@ -27,11 +27,11 @@ def rank_eval(score):
     # print(card) - test line
     if card[1] == "ace":
         if score >= 11: 
-            score += 1
+            score = 1
         else: 
-            score += 11
+            score = 11
     else: 
-        score += card[0]
+        score = card[0]
     return score
 
 def blackjack():
@@ -46,9 +46,8 @@ def blackjack():
     print(f"Computer's first card: {comp_cards[0]}")
     while user_start != 'n':
         user_start = input("Type 'y' to get another card, type 'n' to pass: ")
-        third_card = rank_eval(user_cards)
-        user_cards.append(third_card)
-        print(f"Your cards: {user_cards}, current score: {user_score}")
+        user_cards.append(rank_eval(user_score))
+        print(f"Your cards: {user_cards}, current score: {sum(user_cards)}")
         break
 
     #     if user_start == "n":
