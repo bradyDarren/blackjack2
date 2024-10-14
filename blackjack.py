@@ -34,11 +34,14 @@ def rank_eval(score):
         score = card[0]
     return score
 
+
+
 def blackjack():
     user_score = 0
     comp_score = 0 
     user_start = input("Would you like to play a game of blackjack? Type 'y' or 'n': ")
     user_cards = [rank_eval(user_score), rank_eval(user_score)]
+    # need to make sure that the user score value is checked & updated after ever card is pulled. Not after the first two cards are pulled.
     user_score += sum(user_cards)
     print(user_cards)
     comp_cards = [rank_eval(comp_score), rank_eval(comp_score)]
