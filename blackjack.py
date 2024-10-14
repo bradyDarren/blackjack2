@@ -40,20 +40,24 @@ def blackjack():
     user_start = input("Would you like to play a game of blackjack? Type 'y' or 'n': ")
     user_cards = [rank_eval(user_score), rank_eval(user_score)]
     user_score += sum(user_cards)
+    print(user_cards)
     comp_cards = [rank_eval(comp_score), rank_eval(comp_score)]
     print(comp_cards)
     comp_score += sum(comp_cards)
+    print(comp_score)
     print(f"Your cards: {user_cards}, current score: {sum(user_cards)}")
     print(f"Computer's first card: {comp_cards[0]}")
     while user_start != 'n':
         user_start = input("Type 'y' to get another card, type 'n' to pass: ")
         if user_start == "n":
+            comp_cards.append(rank_eval(comp_cards))
             print(f"Your final hand: {user_cards}, current score: {sum(user_cards)}")
             print(f"Computer's final hand: {comp_cards}, final score {sum(comp_cards)}")
         else: 
             user_cards.append(rank_eval(user_score))
             print(f"Your cards: {user_cards}, current score: {sum(user_cards)}")
-       
+        print(comp_score)
+        print(user_score)       
         
     # if user_score > 21:
     #     print(f"Busted. ")
