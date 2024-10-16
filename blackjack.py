@@ -60,18 +60,22 @@ def blackjack():
                 print(f"Your final hand: {user_cards}, current score: {sum(user_cards)}")
                 print(f"Computer's final hand: {comp_cards}, final score {sum(comp_cards)}")
                 if sum(comp_cards) > 21:
-                    print("House Busted. Challenger Wins!!!")        
+                    print("Bust. Challenger Wins !!!")
+
             else: 
                 user_cards.append(rank_eval(user_score))
                 print(f"Your cards: {user_cards}, current score: {sum(user_cards)}")
-                print(f"Computer's hand: {comp_cards[0]}")
-                if sum(user_cards) > 21:
-                    print("Busted. House Wins!!!")
+                if sum(user_cards) > 21: 
+                    print(f"Computer's final hand: {comp_cards}, final score {sum(comp_cards)}")
+                    print("Bust. House Wins !!!")
+                    break
+                else: 
+                    print(f"Computer's hand: {comp_cards[0]}")
 
-        if sum(user_cards) > sum(comp_cards):
+        if sum(user_cards) > sum(comp_cards) and sum(user_cards) <= 21:
             print("Challenger wins!!")
         
-        if sum(comp_cards) > sum(user_cards):
+        if sum(comp_cards) > sum(user_cards) and sum(comp_cards) <= 21:
             print("House wins!!!")
 
     else: 
